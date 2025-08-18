@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SkillCinemaApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
+        <item name="colorPrimaryVariant">@color/md_theme_dark_primary</item>
+        
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/md_theme_dark_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_dark_onSecondary</item>
+        <item name="colorSecondaryVariant">@color/md_theme_dark_secondary</item>
+        
+        <!-- Error color. -->
+        <item name="colorError">@color/md_theme_dark_error</item>
+        <item name="colorOnError">@color/md_theme_dark_onError</item>
+        
+        <!-- Background colors. -->
+        <item name="android:colorBackground">@color/md_theme_dark_background</item>
+        <item name="colorSurface">@color/md_theme_dark_surface</item>
+        <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
+        
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        
+        <!-- System bars -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>

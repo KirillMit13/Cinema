@@ -1,0 +1,9 @@
+package com.example.cinema
+
+import com.example.cinema.domain.model.Film
+
+data class FilmSection(
+    val sectionTitle: String, // Переименовано из title для ясности
+    val films: List<Film>,
+    val showAll: Boolean = false
+)

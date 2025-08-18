@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Кино Поиск</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Главная</string>
+    <string name="nav_search">Поиск</string>
+    <string name="nav_profile">Профиль</string>
+    
+    <!-- Home Screen -->
+    <string name="home_top_250">Топ 250 фильмов</string>
+    <string name="home_popular">Популярное</string>
+    <string name="home_series">Сериалы</string>
+    <string name="home_premieres">Премьеры</string>
+    <string name="home_view_all">Посмотреть все</string>
+    <string name="home_error_loading">Ошибка загрузки</string>
+    <string name="home_retry">Повторить</string>
+    
+    <!-- Film Details -->
+    <string name="film_details_gallery">Галерея</string>
+    <string name="film_details_seasons">Сезоны и серии</string>
+    <string name="film_details_collections">В коллекции</string>
+    <string name="film_details_share">Поделиться</string>
+    <string name="film_details_cast">В фильме снимались</string>
+    <string name="film_details_similar">Похожие фильмы</string>
+    <string name="film_details_rating">Рейтинг</string>
+    <string name="film_details_year">Год</string>
+    <string name="film_details_genres">Жанры</string>
+    <string name="film_details_description">Описание</string>
+    
+    <!-- Collections -->
+    <string name="collections_favorites">Избранное</string>
+    <string name="collections_watchlist">К просмотру</string>
+    <string name="collections_watched">Просмотрено</string>
+    <string name="collections_custom">Пользовательские</string>
+    <string name="collections_create">Создать коллекцию</string>
+    <string name="collections_delete">Удалить</string>
+    <string name="collections_add_film">Добавить фильм</string>
+    <string name="collections_remove_film">Убрать из коллекции</string>
+    <string name="collections_new_name">Название новой коллекции</string>
+    <string name="collections_create_button">Создать</string>
+    <string name="collections_done">Готово</string>
+    
+    <!-- Search -->
+    <string name="search_hint">Поиск фильмов и сериалов</string>
+    <string name="search_settings">Настройки поиска</string>
+    <string name="search_filters">Фильтры</string>
+    <string name="search_type">Тип</string>
+    <string name="search_type_all">Все</string>
+    <string name="search_type_film">Фильмы</string>
+    <string name="search_type_series">Сериалы</string>
+    <string name="search_country">Страна</string>
+    <string name="search_genre">Жанр</string>
+    <string name="search_year_from">Год от</string>
+    <string name="search_year_to">Год до</string>
+    <string name="search_rating_from">Рейтинг от</string>
+    <string name="search_rating_to">Рейтинг до</string>
+    <string name="search_order">Сортировка</string>
+    <string name="search_order_rating">По рейтингу</string>
+    <string name="search_order_year">По году</string>
+    <string name="search_order_name">По названию</string>
+    <string name="search_hide_watched">Скрыть просмотренные</string>
+    <string name="search_apply">Применить</string>
+    <string name="search_no_results">Ничего не найдено</string>
+    
+    <!-- Profile -->
+    <string name="profile_watched_count">Просмотрено</string>
+    <string name="profile_collections_count">Коллекции</string>
+    <string name="profile_history_count">История</string>
+    <string name="profile_view_collections">Коллекции</string>
+    <string name="profile_view_history">Вам было интересно</string>
+    <string name="profile_clear_history">Очистить историю</string>
+    
+    <!-- History -->
+    <string name="history_title">История просмотров</string>
+    <string name="history_empty">История пуста</string>
+    <string name="history_clear">Очистить историю</string>
+    
+    <!-- Actor -->
+    <string name="actor_best_films">Лучшие фильмы</string>
+    <string name="actor_profession">Профессия</string>
+    
+    <!-- Gallery -->
+    <string name="gallery_title">Галерея</string>
+    <string name="gallery_stills">Кадры</string>
+    <string name="gallery_posters">Постеры</string>
+    <string name="gallery_wallpapers">Обои</string>
+    <string name="gallery_shooting">Съемки</string>
+    
+    <!-- Seasons -->
+    <string name="seasons_title">Сезоны и серии</string>
+    <string name="seasons_episode">Серия</string>
+    <string name="seasons_episodes_count">серий</string>
+    
+    <!-- Common -->
+    <string name="common_loading">Загрузка...</string>
+    <string name="common_error">Ошибка</string>
+    <string name="common_retry">Повторить</string>
+    <string name="common_cancel">Отмена</string>
+    <string name="common_ok">ОК</string>
+    <string name="common_yes">Да</string>
+    <string name="common_no">Нет</string>
+    <string name="common_network_error">Ошибка сети. Проверьте подключение к интернету.</string>
+    <string name="common_server_error">Ошибка сервера. Попробуйте позже.</string>
+    <string name="common_unknown_error">Неизвестная ошибка</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_welcome">Добро пожаловать в Кино Поиск</string>
+    <string name="onboarding_description">Находите фильмы, создавайте коллекции и следите за новинками</string>
+    <string name="onboarding_skip">Пропустить</string>
+    <string name="onboarding_next">Далее</string>
+    <string name="onboarding_start">Начать</string>
+</resources>
