@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class HistoryViewModel(private val historyDao: HistoryDao) : ViewModel() {
-    val items: StateFlow<List<HistoryEntity>> = historyDao.getRecent(200)
+    val items: StateFlow<List<HistoryWithFilm>> = historyDao.getRecentWithFilmData(200)
         .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     fun clear() {

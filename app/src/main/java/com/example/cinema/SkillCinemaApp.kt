@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.view.WindowCompat
+import com.example.cinema.ui.components.NeonColors
 
 class SkillCinemaApp : Application() {
     override fun onCreate() {
@@ -18,60 +19,93 @@ class SkillCinemaApp : Application() {
 }
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Color(0xFFFF6B35),
-    onPrimary = Color(0xFFFFFFFF),
-    secondary = Color(0xFFFFD700),
-    onSecondary = Color(0xFF000000),
-    tertiary = Color(0xFFE91E63),
-    onTertiary = Color(0xFFFFFFFF),
-    background = Color(0xFF121212),
-    onBackground = Color(0xFFFFFFFF),
-    surface = Color(0xFF1E1E1E),
-    onSurface = Color(0xFFFFFFFF),
-    surfaceVariant = Color(0xFF2D2D2D),
-    onSurfaceVariant = Color(0xFFB3B3B3),
-    error = Color(0xFFCF6679),
-    onError = Color(0xFF000000),
-    outline = Color(0xFF424242),
-    outlineVariant = Color(0xFF616161),
-    scrim = Color(0x52000000),
-    inverseSurface = Color(0xFFE1E1E1),
-    inverseOnSurface = Color(0xFF121212),
-    inversePrimary = Color(0xFFFF8A65),
-    surfaceTint = Color(0xFFFF6B35)
+    primary = NeonColors.Primary,
+    onPrimary = Color.Black,
+    primaryContainer = NeonColors.Primary.copy(alpha = 0.8f),
+    onPrimaryContainer = Color.Black,
+    secondary = NeonColors.Secondary,
+    onSecondary = Color.White,
+    secondaryContainer = NeonColors.Secondary.copy(alpha = 0.8f),
+    onSecondaryContainer = Color.White,
+    tertiary = NeonColors.Tertiary,
+    onTertiary = Color.White,
+    tertiaryContainer = NeonColors.Tertiary.copy(alpha = 0.8f),
+    onTertiaryContainer = Color.White,
+    error = NeonColors.GlowPink,
+    onError = Color.White,
+    errorContainer = NeonColors.GlowPink.copy(alpha = 0.8f),
+    onErrorContainer = Color.White,
+    background = NeonColors.Background,
+    onBackground = NeonColors.TextPrimary,
+    surface = NeonColors.Surface,
+    onSurface = NeonColors.TextPrimary,
+    surfaceVariant = NeonColors.SurfaceVariant,
+    onSurfaceVariant = NeonColors.TextSecondary,
+    outline = Color(0xFF404040),
+    outlineVariant = Color(0xFF606060),
+    scrim = Color.Black,
+    inverseSurface = NeonColors.TextPrimary,
+    inverseOnSurface = NeonColors.Background,
+    inversePrimary = NeonColors.Primary,
+    surfaceTint = NeonColors.Primary,
+    surfaceBright = Color(0xFF3A3A3A),
+    surfaceDim = NeonColors.Surface,
+    surfaceContainer = NeonColors.SurfaceVariant,
+    surfaceContainerHigh = Color(0xFF3A3A3A),
+    surfaceContainerHighest = Color(0xFF4A4A4A),
+    surfaceContainerLow = NeonColors.Surface,
+    surfaceContainerLowest = NeonColors.Background
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Color(0xFFFF6B35),
-    onPrimary = Color(0xFFFFFFFF),
-    secondary = Color(0xFFFFD700),
-    onSecondary = Color(0xFF000000),
-    tertiary = Color(0xFFE91E63),
-    onTertiary = Color(0xFFFFFFFF),
-    background = Color(0xFFFAFAFA),
-    onBackground = Color(0xFF1C1B1F),
-    surface = Color(0xFFFFFFFF),
-    onSurface = Color(0xFF1C1B1F),
-    surfaceVariant = Color(0xFFF3F3F3),
-    onSurfaceVariant = Color(0xFF49454F),
-    error = Color(0xFFBA1A1A),
-    onError = Color(0xFFFFFFFF),
-    outline = Color(0xFF79747E),
-    outlineVariant = Color(0xFFCAC4D0),
-    scrim = Color(0x52000000),
-    inverseSurface = Color(0xFF313033),
-    inverseOnSurface = Color(0xFFF4EFF4),
-    inversePrimary = Color(0xFFFFB4AB),
-    surfaceTint = Color(0xFFFF6B35)
+    primary = NeonColors.Primary,
+    onPrimary = Color.Black,
+    primaryContainer = NeonColors.Primary.copy(alpha = 0.8f),
+    onPrimaryContainer = Color.Black,
+    secondary = NeonColors.Secondary,
+    onSecondary = Color.White,
+    secondaryContainer = NeonColors.Secondary.copy(alpha = 0.8f),
+    onSecondaryContainer = Color.White,
+    tertiary = NeonColors.Tertiary,
+    onTertiary = Color.White,
+    tertiaryContainer = NeonColors.Tertiary.copy(alpha = 0.8f),
+    onTertiaryContainer = Color.White,
+    error = NeonColors.GlowPink,
+    onError = Color.White,
+    errorContainer = NeonColors.GlowPink.copy(alpha = 0.8f),
+    onErrorContainer = Color.White,
+    background = Color.White,
+    onBackground = Color.Black,
+    surface = Color.White,
+    onSurface = Color.Black,
+    surfaceVariant = Color(0xFFF5F5F5),
+    onSurfaceVariant = Color(0xFF666666),
+    outline = Color(0xFFCCCCCC),
+    outlineVariant = Color(0xFFCCCCCC),
+    scrim = Color.Black,
+    inverseSurface = Color.Black,
+    inverseOnSurface = Color.White,
+    inversePrimary = NeonColors.Primary,
+    surfaceTint = NeonColors.Primary,
+    surfaceBright = Color.White,
+    surfaceDim = Color(0xFFF5F5F5),
+    surfaceContainer = Color.White,
+    surfaceContainerHigh = Color(0xFFF0F0F0),
+    surfaceContainerHighest = Color(0xFFE5E5E5),
+    surfaceContainerLow = Color.White,
+    surfaceContainerLowest = Color.White
 )
 
 @Composable
 fun SkillCinemaTheme(
-    darkTheme: Boolean = true, // Default to dark theme
+    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
-    
+    val colorScheme = when {
+        darkTheme -> DarkColorScheme
+        else -> LightColorScheme
+    }
+
     MaterialTheme(
         colorScheme = colorScheme,
         content = content

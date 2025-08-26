@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -62,8 +63,10 @@ fun ProfileScreen(
             )
         }
         
-        items(watched.take(5).size) { index ->
-            val film = watched.take(5)[index]
+        itemsIndexed(
+            items = watched.take(5),
+            key = { index, film: com.example.cinema.FilmEntity -> "watched_${film.id}_${index}" }
+        ) { _, film: com.example.cinema.FilmEntity ->
             WatchedFilmItem(film = film)
         }
         
@@ -86,7 +89,7 @@ fun ProfileScreen(
         
         items(
             items = collections.take(3),
-            key = { collection: com.example.cinema.domain.model.Collection -> collection.id }
+            key = { collection: com.example.cinema.domain.model.Collection -> "collection_${collection.id}" }
         ) { collection: com.example.cinema.domain.model.Collection ->
             CollectionItem(
                 collection = collection,
@@ -114,7 +117,7 @@ fun ProfileScreen(
         if (history.isNotEmpty()) {
             items(
                 items = history.take(5),
-                key = { historyItem: com.example.cinema.HistoryEntity -> historyItem.id }
+                key = { historyItem: com.example.cinema.HistoryEntity -> "history_${historyItem.id}" }
             ) { historyItem: com.example.cinema.HistoryEntity ->
                 HistoryItem(historyItem = historyItem)
             }

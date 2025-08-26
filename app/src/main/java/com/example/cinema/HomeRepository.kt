@@ -32,14 +32,14 @@ class HomeRepository(
             val topFilms = api.getTopFilms(type = "TOP_250_MOVIES", page = 1)
             println("HomeRepository: Top films loaded: ${topFilms.items.size} items")
             FilmSection(
-                sectionTitle = "Топ-250",
+                sectionTitle = "Топ-250 фильмов",
                 films = topFilms.items.map { it.toDomain() },
                 showAll = true
             )
         } catch (e: Exception) {
             println("HomeRepository: Error loading top films: ${e.message}")
             e.printStackTrace()
-            FilmSection(sectionTitle = "Топ-250", films = emptyList(), showAll = true)
+            FilmSection(sectionTitle = "Топ-250 фильмов", films = emptyList(), showAll = true)
         }
 
         val popularSection = try {
@@ -48,18 +48,18 @@ class HomeRepository(
             println("HomeRepository: Popular films loaded: ${popularFilms.items.size} items")
             if (popularFilms.items.isNotEmpty()) {
                 FilmSection(
-                    sectionTitle = "Популярное",
+                    sectionTitle = "Популярные фильмы",
                     films = popularFilms.items.map { it.toDomain() },
                     showAll = true
                 )
             } else {
                 println("HomeRepository: Popular films API returned empty list")
-                FilmSection(sectionTitle = "Популярное", films = emptyList(), showAll = true)
+                FilmSection(sectionTitle = "Популярные фильмы", films = emptyList(), showAll = true)
             }
         } catch (e: Exception) {
             println("HomeRepository: Error loading popular films: ${e.message}")
             e.printStackTrace()
-            FilmSection(sectionTitle = "Популярное", films = emptyList(), showAll = true)
+            FilmSection(sectionTitle = "Популярные фильмы", films = emptyList(), showAll = true)
         }
 
         val watchedIds = filmDao.getWatchedIds().toSet()

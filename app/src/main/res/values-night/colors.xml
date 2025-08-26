@@ -1,50 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Material 3 Dark Theme Colors -->
-    <color name="md_theme_dark_primary">#6CDBAB</color>
-    <color name="md_theme_dark_onPrimary">#003825</color>
-    <color name="md_theme_dark_primaryContainer">#004F37</color>
-    <color name="md_theme_dark_onPrimaryContainer">#89F8C7</color>
-    <color name="md_theme_dark_primaryVariant">#6CDBAB</color>
+    <!-- Neon Cinema Dark Theme - Cyberpunk Style -->
     
-    <color name="md_theme_dark_secondary">#B3CCBF</color>
-    <color name="md_theme_dark_onSecondary">#1F352B</color>
-    <color name="md_theme_dark_secondaryContainer">#354B41</color>
-    <color name="md_theme_dark_onSecondaryContainer">#CFE9DB</color>
-    <color name="md_theme_dark_secondaryVariant">#B3CCBF</color>
+    <!-- Primary Colors - Electric Blue -->
+    <color name="md_theme_dark_primary">#00D4FF</color>
+    <color name="md_theme_dark_onPrimary">#000000</color>
+    <color name="md_theme_dark_primaryContainer">#0099CC</color>
+    <color name="md_theme_dark_onPrimaryContainer">#FFFFFF</color>
+    <color name="md_theme_dark_primaryVariant">#00D4FF</color>
     
-    <color name="md_theme_dark_tertiary">#A7CCE0</color>
-    <color name="md_theme_dark_onTertiary">#0A3444</color>
-    <color name="md_theme_dark_tertiaryContainer">#254B5B</color>
-    <color name="md_theme_dark_onTertiaryContainer">#C3E8FC</color>
+    <!-- Secondary Colors - Hot Pink -->
+    <color name="md_theme_dark_secondary">#FF0080</color>
+    <color name="md_theme_dark_onSecondary">#FFFFFF</color>
+    <color name="md_theme_dark_secondaryContainer">#CC0066</color>
+    <color name="md_theme_dark_onSecondaryContainer">#FFFFFF</color>
+    <color name="md_theme_dark_secondaryVariant">#FF0080</color>
     
-    <color name="md_theme_dark_error">#FFB4AB</color>
-    <color name="md_theme_dark_onError">#690005</color>
-    <color name="md_theme_dark_errorContainer">#93000A</color>
-    <color name="md_theme_dark_onErrorContainer">#FFDAD6</color>
+    <!-- Tertiary Colors - Electric Purple -->
+    <color name="md_theme_dark_tertiary">#8A2BE2</color>
+    <color name="md_theme_dark_onTertiary">#FFFFFF</color>
+    <color name="md_theme_dark_tertiaryContainer">#6A1B9A</color>
+    <color name="md_theme_dark_onTertiaryContainer">#FFFFFF</color>
     
-    <color name="md_theme_dark_background">#191C1A</color>
-    <color name="md_theme_dark_onBackground">#E1E3DF</color>
-    <color name="md_theme_dark_surface">#191C1A</color>
-    <color name="md_theme_dark_onSurface">#E1E3DF</color>
-    <color name="md_theme_dark_surfaceVariant">#404943</color>
-    <color name="md_theme_dark_onSurfaceVariant">#BFC9C2</color>
-    <color name="md_theme_dark_outline">#8A938C</color>
-    <color name="md_theme_dark_outlineVariant">#404943</color>
+    <!-- Error Colors -->
+    <color name="md_theme_dark_error">#FF1744</color>
+    <color name="md_theme_dark_onError">#FFFFFF</color>
+    <color name="md_theme_dark_errorContainer">#FF1744</color>
+    <color name="md_theme_dark_onErrorContainer">#FFFFFF</color>
     
-    <color name="md_theme_dark_surfaceBright">#1F211E</color>
-    <color name="md_theme_dark_surfaceDim">#191C1A</color>
-    <color name="md_theme_dark_surfaceContainer">#1D201C</color>
-    <color name="md_theme_dark_surfaceContainerHigh">#272A26</color>
-    <color name="md_theme_dark_surfaceContainerHighest">#323530</color>
-    <color name="md_theme_dark_surfaceContainerLow">#1A1D19</color>
-    <color name="md_theme_dark_surfaceContainerLowest">#141715</color>
+    <!-- Background Colors - Dark Cyberpunk -->
+    <color name="md_theme_dark_background">#0A0A0A</color>
+    <color name="md_theme_dark_onBackground">#FFFFFF</color>
+    <color name="md_theme_dark_surface">#1A1A1A</color>
+    <color name="md_theme_dark_onSurface">#FFFFFF</color>
+    <color name="md_theme_dark_surfaceVariant">#2A2A2A</color>
+    <color name="md_theme_dark_onSurfaceVariant">#B3B3B3</color>
+    <color name="md_theme_dark_outline">#404040</color>
+    <color name="md_theme_dark_outlineVariant">#606060</color>
     
+    <!-- Surface Container Colors -->
+    <color name="md_theme_dark_surfaceBright">#3A3A3A</color>
+    <color name="md_theme_dark_surfaceDim">#1A1A1A</color>
+    <color name="md_theme_dark_surfaceContainer">#2A2A2A</color>
+    <color name="md_theme_dark_surfaceContainerHigh">#3A3A3A</color>
+    <color name="md_theme_dark_surfaceContainerHighest">#4A4A4A</color>
+    <color name="md_theme_dark_surfaceContainerLow">#1A1A1A</color>
+    <color name="md_theme_dark_surfaceContainerLowest">#0A0A0A</color>
+    
+    <!-- Utility Colors -->
     <color name="md_theme_dark_scrim">#000000</color>
-    <color name="md_theme_dark_inversePrimary">#006C4C</color>
-    <color name="md_theme_dark_inverseOnPrimary">#FFFFFF</color>
-    <color name="md_theme_dark_inverseSurface">#E1E3DF</color>
-    <color name="md_theme_dark_inverseOnSurface">#191C1A</color>
+    <color name="md_theme_dark_inversePrimary">#00D4FF</color>
+    <color name="md_theme_dark_inverseOnPrimary">#000000</color>
+    <color name="md_theme_dark_inverseSurface">#FFFFFF</color>
+    <color name="md_theme_dark_inverseOnSurface">#0A0A0A</color>
     <color name="md_theme_dark_shadow">#000000</color>
-    <color name="md_theme_dark_surfaceTint">#6CDBAB</color>
+    <color name="md_theme_dark_surfaceTint">#00D4FF</color>
 </resources>

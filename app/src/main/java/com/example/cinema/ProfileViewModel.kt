@@ -27,12 +27,15 @@ class ProfileViewModel(
             }
         }
 
-    val collections = collectionsRepository.getCollections()
+    val collections = collectionsRepository.getCollectionsWithCounts()
         .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
         .also { flow ->
             viewModelScope.launch {
                 flow.collect { collections ->
                     println("ProfileViewModel: Collections count: ${collections.size}")
+                    collections.forEach { collection ->
+                        println("ProfileViewModel: Collection '${collection.name}' has ${collection.filmCount} films")
+                    }
                 }
             }
         }

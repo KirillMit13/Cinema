@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import com.example.cinema.domain.model.Film
 import com.example.cinema.domain.model.Collection as DomainCollection
+import com.example.cinema.domain.model.Collection
 import com.example.cinema.CollectionEntity
 import com.example.cinema.FilmEntity
 import com.example.cinema.FilmCollectionCrossRef
@@ -24,8 +25,22 @@ class CollectionsRepository(
                 id = entity.id,
                 name = entity.name,
                 description = null,
-                filmCount = 0 // обновим ниже через отдельный поток
+                filmCount = 0 // Временно устанавливаем 0, обновим ниже
             )
+        }
+    }
+
+    fun getCollectionsWithCounts(): Flow<List<DomainCollection>> = collectionDao.getCollections().map { entities ->
+        kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+            entities.map { entity ->
+                val filmCount = collectionDao.getCollectionCountSync(entity.id)
+                DomainCollection(
+                    id = entity.id,
+                    name = entity.name,
+                    description = null,
+                    filmCount = filmCount
+                )
+            }
         }
     }
 

@@ -186,3 +186,32 @@ fun ProfileStatsShimmer() {
         }
     }
 }
+
+@Composable
+fun SectionShimmer() {
+    Column(
+        modifier = Modifier.padding(vertical = 8.dp)
+    ) {
+        // Section header shimmer
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            ShimmerEffect()
+            Spacer(modifier = Modifier.weight(1f))
+            ShimmerEffect()
+        }
+        
+        // Films row shimmer
+        LazyRow(
+            contentPadding = PaddingValues(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            items(5) {
+                FilmCardShimmer()
+            }
+        }
+    }
+}

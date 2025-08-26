@@ -30,6 +30,9 @@ interface CollectionDao {
     @Query("SELECT COUNT(*) FROM film_collection_cross_ref WHERE collectionId = :collectionId")
     fun getCollectionCount(collectionId: Long): Flow<Int>
 
+    @Query("SELECT COUNT(*) FROM film_collection_cross_ref WHERE collectionId = :collectionId")
+    fun getCollectionCountSync(collectionId: Long): Int
+
     @Transaction
     @Query("SELECT films.* FROM films INNER JOIN film_collection_cross_ref ON films.id = film_collection_cross_ref.filmId WHERE film_collection_cross_ref.collectionId = :collectionId")
     fun getFilmsForCollection(collectionId: Long): Flow<List<FilmEntity>>

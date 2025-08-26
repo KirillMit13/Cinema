@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class OnboardingPrefs(
-    private val context: Context
+    context: Context
 ) {
     companion object {
         private const val PREF_NAME = "onboarding_prefs"
@@ -19,7 +19,7 @@ class OnboardingPrefs(
     private val _isCompleted = MutableStateFlow<Boolean?>(prefs.getBoolean(KEY_ONBOARDING_COMPLETED, false))
     val isOnboardingCompleted: Flow<Boolean?> = _isCompleted.asStateFlow()
 
-    suspend fun setOnboardingCompleted() {
+     fun setOnboardingCompleted() {
         prefs.edit().putBoolean(KEY_ONBOARDING_COMPLETED, true).apply()
         _isCompleted.value = true
     }

@@ -68,8 +68,8 @@ fun HistoryScreen(viewModel: HistoryViewModel) {
             ) {
                 items(
                     items = items,
-                    key = { historyItem: com.example.cinema.HistoryEntity -> historyItem.id }
-                ) { historyItem: com.example.cinema.HistoryEntity ->
+                    key = { historyItem: com.example.cinema.HistoryWithFilm -> historyItem.id }
+                ) { historyItem: com.example.cinema.HistoryWithFilm ->
                     HistoryItemCard(historyItem = historyItem)
                 }
             }
@@ -151,7 +151,7 @@ private fun EmptyHistoryState() {
 
 @Composable
 private fun HistoryItemCard(
-    historyItem: com.example.cinema.HistoryEntity
+    historyItem: com.example.cinema.HistoryWithFilm
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -164,19 +164,31 @@ private fun HistoryItemCard(
                 .padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Placeholder for film poster
-            Box(
-                modifier = Modifier
-                    .size(60.dp, 90.dp)
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(MaterialTheme.colorScheme.primaryContainer),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Movie,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer
+            // Film poster
+            val posterUrl = historyItem.filmPosterUrl
+            if (posterUrl != null) {
+                AsyncImage(
+                    model = posterUrl,
+                    contentDescription = historyItem.filmTitle ?: "Фильм ${historyItem.refId}",
+                    modifier = Modifier
+                        .size(60.dp, 90.dp)
+                        .clip(RoundedCornerShape(8.dp)),
+                    contentScale = ContentScale.Crop
                 )
+            } else {
+                Box(
+                    modifier = Modifier
+                        .size(60.dp, 90.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(MaterialTheme.colorScheme.primaryContainer),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Movie,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.width(12.dp))
@@ -186,7 +198,7 @@ private fun HistoryItemCard(
                 modifier = Modifier.weight(1f)
             ) {
                 Text(
-                    text = "Фильм ID: ${historyItem.refId}",
+                    text = historyItem.filmTitle ?: "Фильм ID: ${historyItem.refId}",
                     style = MaterialTheme.typography.titleSmall.copy(
                         fontWeight = FontWeight.Medium
                     ),
@@ -196,7 +208,7 @@ private fun HistoryItemCard(
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
-                    text = "Тип: ${historyItem.type}",
+                    text = "Просмотрено: ${if (historyItem.filmIsWatched == true) "Да" else "Нет"}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

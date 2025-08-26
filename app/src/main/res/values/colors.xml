@@ -1,62 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Dark theme colors -->
-    <color name="md_theme_dark_primary">#FF6B35</color>
-    <color name="md_theme_dark_onPrimary">#FFFFFF</color>
-    <color name="md_theme_dark_primaryContainer">#FF6B35</color>
-    <color name="md_theme_dark_onPrimaryContainer">#FFFFFF</color>
+    <!-- Neon Cinema Theme - Cyberpunk Style -->
     
-    <color name="md_theme_dark_secondary">#FFD700</color>
-    <color name="md_theme_dark_onSecondary">#000000</color>
-    <color name="md_theme_dark_secondaryContainer">#FFD700</color>
-    <color name="md_theme_dark_onSecondaryContainer">#000000</color>
+    <!-- Primary Colors - Electric Blue -->
+    <color name="neon_primary">#00D4FF</color>
+    <color name="neon_primary_variant">#0099CC</color>
+    <color name="neon_on_primary">#000000</color>
     
-    <color name="md_theme_dark_tertiary">#FF6B35</color>
-    <color name="md_theme_dark_onTertiary">#FFFFFF</color>
-    <color name="md_theme_dark_tertiaryContainer">#FF6B35</color>
-    <color name="md_theme_dark_onTertiaryContainer">#FFFFFF</color>
+    <!-- Secondary Colors - Hot Pink -->
+    <color name="neon_secondary">#FF0080</color>
+    <color name="neon_secondary_variant">#CC0066</color>
+    <color name="neon_on_secondary">#FFFFFF</color>
     
-    <color name="md_theme_dark_error">#FF5252</color>
-    <color name="md_theme_dark_onError">#FFFFFF</color>
-    <color name="md_theme_dark_errorContainer">#FF5252</color>
-    <color name="md_theme_dark_onErrorContainer">#FFFFFF</color>
+    <!-- Tertiary Colors - Electric Purple -->
+    <color name="neon_tertiary">#8A2BE2</color>
+    <color name="neon_tertiary_variant">#6A1B9A</color>
+    <color name="neon_on_tertiary">#FFFFFF</color>
     
-    <color name="md_theme_dark_background">#121212</color>
-    <color name="md_theme_dark_onBackground">#FFFFFF</color>
-    <color name="md_theme_dark_surface">#1E1E1E</color>
-    <color name="md_theme_dark_onSurface">#FFFFFF</color>
-    <color name="md_theme_dark_surfaceVariant">#2D2D2D</color>
-    <color name="md_theme_dark_onSurfaceVariant">#B3B3B3</color>
-    <color name="md_theme_dark_outline">#404040</color>
-    <color name="md_theme_dark_outlineVariant">#404040</color>
+    <!-- Accent Colors -->
+    <color name="neon_accent_green">#00FF41</color>
+    <color name="neon_accent_orange">#FF6B35</color>
+    <color name="neon_accent_yellow">#FFD700</color>
     
-    <color name="md_theme_dark_inverseSurface">#FFFFFF</color>
-    <color name="md_theme_dark_inverseOnSurface">#121212</color>
-    <color name="md_theme_dark_inversePrimary">#FF6B35</color>
+    <!-- Background Colors - Dark Cyberpunk -->
+    <color name="neon_background">#0A0A0A</color>
+    <color name="neon_surface">#1A1A1A</color>
+    <color name="neon_surface_variant">#2A2A2A</color>
+    <color name="neon_surface_bright">#3A3A3A</color>
+    
+    <!-- Text Colors -->
+    <color name="neon_text_primary">#FFFFFF</color>
+    <color name="neon_text_secondary">#B3B3B3</color>
+    <color name="neon_text_tertiary">#808080</color>
+    
+    <!-- Error Colors -->
+    <color name="neon_error">#FF1744</color>
+    <color name="neon_on_error">#FFFFFF</color>
+    
+    <!-- Outline Colors -->
+    <color name="neon_outline">#404040</color>
+    <color name="neon_outline_variant">#606060</color>
+    
+    <!-- Gradient Colors -->
+    <color name="neon_gradient_start">#00D4FF</color>
+    <color name="neon_gradient_center">#8A2BE2</color>
+    <color name="neon_gradient_end">#FF0080</color>
+    
+    <!-- Glow Colors -->
+    <color name="neon_glow_blue">#00D4FF</color>
+    <color name="neon_glow_pink">#FF0080</color>
+    <color name="neon_glow_purple">#8A2BE2</color>
+    
+    <!-- Legacy Material 3 Colors (for compatibility) -->
+    <color name="md_theme_dark_primary">@color/neon_primary</color>
+    <color name="md_theme_dark_onPrimary">@color/neon_on_primary</color>
+    <color name="md_theme_dark_primaryContainer">@color/neon_primary_variant</color>
+    <color name="md_theme_dark_onPrimaryContainer">@color/neon_on_primary</color>
+    
+    <color name="md_theme_dark_secondary">@color/neon_secondary</color>
+    <color name="md_theme_dark_onSecondary">@color/neon_on_secondary</color>
+    <color name="md_theme_dark_secondaryContainer">@color/neon_secondary_variant</color>
+    <color name="md_theme_dark_onSecondaryContainer">@color/neon_on_secondary</color>
+    
+    <color name="md_theme_dark_tertiary">@color/neon_tertiary</color>
+    <color name="md_theme_dark_onTertiary">@color/neon_on_tertiary</color>
+    <color name="md_theme_dark_tertiaryContainer">@color/neon_tertiary_variant</color>
+    <color name="md_theme_dark_onTertiaryContainer">@color/neon_on_tertiary</color>
+    
+    <color name="md_theme_dark_error">@color/neon_error</color>
+    <color name="md_theme_dark_onError">@color/neon_on_error</color>
+    <color name="md_theme_dark_errorContainer">@color/neon_error</color>
+    <color name="md_theme_dark_onErrorContainer">@color/neon_on_error</color>
+    
+    <color name="md_theme_dark_background">@color/neon_background</color>
+    <color name="md_theme_dark_onBackground">@color/neon_text_primary</color>
+    <color name="md_theme_dark_surface">@color/neon_surface</color>
+    <color name="md_theme_dark_onSurface">@color/neon_text_primary</color>
+    <color name="md_theme_dark_surfaceVariant">@color/neon_surface_variant</color>
+    <color name="md_theme_dark_onSurfaceVariant">@color/neon_text_secondary</color>
+    <color name="md_theme_dark_outline">@color/neon_outline</color>
+    <color name="md_theme_dark_outlineVariant">@color/neon_outline_variant</color>
+    
+    <color name="md_theme_dark_inverseSurface">@color/neon_text_primary</color>
+    <color name="md_theme_dark_inverseOnSurface">@color/neon_background</color>
+    <color name="md_theme_dark_inversePrimary">@color/neon_primary</color>
     
     <color name="md_theme_dark_shadow">#000000</color>
     <color name="md_theme_dark_scrim">#000000</color>
     
     <!-- Light theme colors (for compatibility) -->
-    <color name="md_theme_light_primary">#FF6B35</color>
-    <color name="md_theme_light_onPrimary">#FFFFFF</color>
-    <color name="md_theme_light_primaryContainer">#FF6B35</color>
-    <color name="md_theme_light_onPrimaryContainer">#FFFFFF</color>
+    <color name="md_theme_light_primary">@color/neon_primary</color>
+    <color name="md_theme_light_onPrimary">@color/neon_on_primary</color>
+    <color name="md_theme_light_primaryContainer">@color/neon_primary_variant</color>
+    <color name="md_theme_light_onPrimaryContainer">@color/neon_on_primary</color>
     
-    <color name="md_theme_light_secondary">#FFD700</color>
-    <color name="md_theme_light_onSecondary">#000000</color>
-    <color name="md_theme_light_secondaryContainer">#FFD700</color>
-    <color name="md_theme_light_onSecondaryContainer">#000000</color>
+    <color name="md_theme_light_secondary">@color/neon_secondary</color>
+    <color name="md_theme_light_onSecondary">@color/neon_on_secondary</color>
+    <color name="md_theme_light_secondaryContainer">@color/neon_secondary_variant</color>
+    <color name="md_theme_light_onSecondaryContainer">@color/neon_on_secondary</color>
     
-    <color name="md_theme_light_tertiary">#FF6B35</color>
-    <color name="md_theme_light_onTertiary">#FFFFFF</color>
-    <color name="md_theme_light_tertiaryContainer">#FF6B35</color>
-    <color name="md_theme_light_onTertiaryContainer">#FFFFFF</color>
+    <color name="md_theme_light_tertiary">@color/neon_tertiary</color>
+    <color name="md_theme_light_onTertiary">@color/neon_on_tertiary</color>
+    <color name="md_theme_light_tertiaryContainer">@color/neon_tertiary_variant</color>
+    <color name="md_theme_light_onTertiaryContainer">@color/neon_on_tertiary</color>
     
-    <color name="md_theme_light_error">#FF5252</color>
-    <color name="md_theme_light_onError">#FFFFFF</color>
-    <color name="md_theme_light_errorContainer">#FF5252</color>
-    <color name="md_theme_light_onErrorContainer">#FFFFFF</color>
+    <color name="md_theme_light_error">@color/neon_error</color>
+    <color name="md_theme_light_onError">@color/neon_on_error</color>
+    <color name="md_theme_light_errorContainer">@color/neon_error</color>
+    <color name="md_theme_light_onErrorContainer">@color/neon_on_error</color>
     
     <color name="md_theme_light_background">#FFFFFF</color>
     <color name="md_theme_light_onBackground">#000000</color>
@@ -69,18 +120,18 @@
     
     <color name="md_theme_light_inverseSurface">#000000</color>
     <color name="md_theme_light_inverseOnSurface">#FFFFFF</color>
-    <color name="md_theme_light_inversePrimary">#FF6B35</color>
+    <color name="md_theme_light_inversePrimary">@color/neon_primary</color>
     
     <color name="md_theme_light_shadow">#000000</color>
     <color name="md_theme_light_scrim">#000000</color>
     
-    <!-- Custom colors -->
-    <color name="cinema_primary">#FF6B35</color>
-    <color name="cinema_secondary">#FFD700</color>
-    <color name="cinema_background">#121212</color>
-    <color name="cinema_surface">#1E1E1E</color>
-    <color name="cinema_surface_variant">#2D2D2D</color>
-    <color name="cinema_text_primary">#FFFFFF</color>
-    <color name="cinema_text_secondary">#B3B3B3</color>
-    <color name="cinema_divider">#404040</color>
+    <!-- Custom cinema colors -->
+    <color name="cinema_primary">@color/neon_primary</color>
+    <color name="cinema_secondary">@color/neon_secondary</color>
+    <color name="cinema_background">@color/neon_background</color>
+    <color name="cinema_surface">@color/neon_surface</color>
+    <color name="cinema_surface_variant">@color/neon_surface_variant</color>
+    <color name="cinema_text_primary">@color/neon_text_primary</color>
+    <color name="cinema_text_secondary">@color/neon_text_secondary</color>
+    <color name="cinema_divider">@color/neon_outline</color>
 </resources>

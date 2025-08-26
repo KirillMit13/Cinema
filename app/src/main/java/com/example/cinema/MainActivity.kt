@@ -22,6 +22,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.cinema.data.remote.OnboardingPrefs
 import kotlinx.coroutines.launch
 import com.example.cinema.ui.components.*
+import com.example.cinema.ui.components.NeonColors
+import com.example.cinema.ui.components.NeonText
+import com.example.cinema.ui.components.NeonIcons
 
 class MainActivity : ComponentActivity() {
     private lateinit var appContainer: AppContainer
@@ -64,7 +67,7 @@ fun CinemaApp(
                 bottomBar = {
                     BottomAppBar(
                         modifier = Modifier.height(64.dp),
-                        containerColor = MaterialTheme.colorScheme.surface
+                        containerColor = NeonColors.Surface
                     ) {
                         Row(
                             modifier = Modifier.fillMaxWidth(),
@@ -75,8 +78,12 @@ fun CinemaApp(
                                 modifier = Modifier.weight(1f)
                             ) {
                                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                    Icon(Icons.Default.Home, contentDescription = "Home")
-                                    Text(
+                                    Icon(
+                                        NeonIcons.Home, 
+                                        contentDescription = "Home",
+                                        tint = NeonColors.Primary
+                                    )
+                                    NeonText(
                                         text = "Главная",
                                         style = MaterialTheme.typography.labelSmall,
                                         modifier = Modifier.padding(top = 2.dp)
@@ -88,8 +95,12 @@ fun CinemaApp(
                                 modifier = Modifier.weight(1f)
                             ) {
                                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                    Icon(Icons.Default.Search, contentDescription = "Search")
-                                    Text(
+                                    Icon(
+                                        NeonIcons.Search, 
+                                        contentDescription = "Search",
+                                        tint = NeonColors.Secondary
+                                    )
+                                    NeonText(
                                         text = "Поиск",
                                         style = MaterialTheme.typography.labelSmall,
                                         modifier = Modifier.padding(top = 2.dp)
@@ -101,8 +112,12 @@ fun CinemaApp(
                                 modifier = Modifier.weight(1f)
                             ) {
                                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                    Icon(Icons.Default.AccountCircle, contentDescription = "Profile")
-                                    Text(
+                                    Icon(
+                                        NeonIcons.Person, 
+                                        contentDescription = "Profile",
+                                        tint = NeonColors.Tertiary
+                                    )
+                                    NeonText(
                                         text = "Профиль",
                                         style = MaterialTheme.typography.labelSmall,
                                         modifier = Modifier.padding(top = 2.dp)

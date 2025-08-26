@@ -11,4 +11,15 @@ data class HistoryEntity(
     val timestamp: Long
 )
 
+data class HistoryWithFilm(
+    val id: Long,
+    val type: String,
+    val refId: Int,
+    val timestamp: Long,
+    val filmId: Int?,
+    val filmTitle: String?,
+    val filmPosterUrl: String?,
+    val filmIsWatched: Boolean?
+)
+
 
