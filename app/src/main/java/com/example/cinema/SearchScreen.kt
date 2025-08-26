@@ -1,6 +1,5 @@
 package com.example.cinema
 
-import androidx.compose.animation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -8,16 +7,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.example.cinema.domain.model.Film
@@ -26,6 +23,7 @@ import com.example.cinema.domain.model.Film
 @Composable
 fun SearchScreen(
     onFilmClick: (Int) -> Unit = {},
+    onOpenSettings: () -> Unit = {},
     viewModel: SearchViewModel = viewModel()
 ) {
     val searchState by viewModel.searchState.collectAsState()
@@ -37,16 +35,24 @@ fun SearchScreen(
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // Search header
-        Text(
-            text = "Поиск фильмов",
-            style = MaterialTheme.typography.headlineMedium.copy(
-                fontWeight = FontWeight.Bold
-            ),
-            modifier = Modifier.padding(bottom = 24.dp)
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Поиск фильмов",
+                style = MaterialTheme.typography.headlineMedium.copy(
+                    fontWeight = FontWeight.Bold
+                ),
+                modifier = Modifier.weight(1f)
+            )
+            IconButton(onClick = onOpenSettings) {
+                Icon(Icons.Default.Settings, contentDescription = "Настройки поиска")
+            }
+        }
 
-        // Search bar
         SearchBar(
             query = searchQuery,
             onQueryChange = { viewModel.search(it) },
@@ -67,7 +73,6 @@ fun SearchScreen(
                 .padding(bottom = 16.dp)
         ) {}
 
-        // Search results
         when {
             isSearching -> {
                 Box(
@@ -203,7 +208,6 @@ private fun SearchResultItem(
                 .fillMaxWidth()
                 .padding(12.dp)
         ) {
-            // Poster
             AsyncImage(
                 model = film.posterUrl,
                 contentDescription = film.title,
@@ -213,8 +217,7 @@ private fun SearchResultItem(
             )
             
             Spacer(modifier = Modifier.width(12.dp))
-            
-            // Film info
+
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -227,8 +230,7 @@ private fun SearchResultItem(
                 )
                 
                 Spacer(modifier = Modifier.height(4.dp))
-                
-                // Rating and year
+
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -257,8 +259,7 @@ private fun SearchResultItem(
                 }
                 
                 Spacer(modifier = Modifier.height(4.dp))
-                
-                // Genres
+
                 if (film.genres.isNotEmpty()) {
                     Text(
                         text = film.genres.joinToString(", "),

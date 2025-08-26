@@ -8,7 +8,6 @@ import com.example.cinema.data.remote.model.KinopoiskService
 import com.example.cinema.domain.model.Film
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 
 class SearchViewModel(
     private val api: KinopoiskService
@@ -30,9 +29,9 @@ class SearchViewModel(
     @OptIn(FlowPreview::class)
     private fun setupSearchFlow() {
         _searchQuery
-            .debounce(500) // Wait 500ms after user stops typing
-            .filter { it.length >= 2 } // Only search if query has at least 2 characters
-            .distinctUntilChanged() // Only search if query actually changed
+            .debounce(500)
+            .filter { it.length >= 2 }
+            .distinctUntilChanged()
             .onEach { _isSearching.value = true }
             .flatMapLatest { query ->
                 performSearch(query)
@@ -43,7 +42,6 @@ class SearchViewModel(
             }
             .catch { error ->
                 _isSearching.value = false
-                // Handle error - could emit error state here
             }
             .launchIn(viewModelScope)
     }
@@ -63,7 +61,6 @@ class SearchViewModel(
             val films = searchResponse.items.map { it.toDomain() }
             emit(films)
         } catch (e: Exception) {
-            // Return empty list on error
             emit(emptyList())
         }
     }

@@ -7,10 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -18,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Неоновые цвета
+
 object NeonColors {
     val Primary = Color(0xFF00D4FF)
     val Secondary = Color(0xFFFF0080)
@@ -33,7 +30,7 @@ object NeonColors {
     val GlowPurple = Color(0xFF8A2BE2)
 }
 
-// Неоновый градиент
+
 val neonGradient = Brush.linearGradient(
     colors = listOf(
         NeonColors.GlowBlue,
@@ -42,7 +39,7 @@ val neonGradient = Brush.linearGradient(
     )
 )
 
-// Неоновый градиент для фона
+
 val neonBackgroundGradient = Brush.radialGradient(
     colors = listOf(
         Color(0xFF1A1A1A),

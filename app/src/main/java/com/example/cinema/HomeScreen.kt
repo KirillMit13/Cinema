@@ -15,26 +15,20 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-
 import coil.compose.AsyncImage
 import com.example.cinema.domain.model.Film
 import com.example.cinema.ui.components.*
 import com.example.cinema.ui.components.NeonColors
 import com.example.cinema.ui.components.NeonCard
-
 import com.example.cinema.ui.components.NeonTitle
-
 import com.example.cinema.ui.components.NeonSurface
 import com.example.cinema.ui.components.SectionShimmer
-
 import com.example.cinema.ui.components.ErrorMessage
 import com.example.cinema.ui.components.EmptyState
 
@@ -107,7 +101,6 @@ fun FilmSectionContent(
     Column(
         modifier = Modifier.padding(vertical = 4.dp)
     ) {
-        // Section header
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -119,7 +112,6 @@ fun FilmSectionContent(
             )
         }
 
-        // Films row
         val previewFilms = remember(section.films) { section.films.take(10) }
         LazyRow(
             contentPadding = PaddingValues(horizontal = 16.dp),
@@ -127,15 +119,14 @@ fun FilmSectionContent(
         ) {
             itemsIndexed(
                 items = previewFilms,
-                key = { index, film: com.example.cinema.domain.model.Film -> "${film.id}_${index}" }
-            ) { _, film: com.example.cinema.domain.model.Film ->
+                key = { index, film: Film -> "${film.id}_${index}" }
+            ) { _, film: Film ->
                 FilmCard(
                     film = film,
                     onClick = { onFilmClick(film.id) }
                 )
             }
 
-            // Trailing arrow to open full list
             item(key = "more_${section.sectionTitle}") {
                 Box(
                     modifier = Modifier
@@ -166,7 +157,7 @@ fun FilmCard(
     NeonCard(
         modifier = Modifier
             .width(140.dp)
-            .height(280.dp) // Фиксированная высота для всех карточек
+            .height(280.dp)
     ) {
         Box(
             modifier = Modifier.clickable { onClick() }
@@ -174,7 +165,6 @@ fun FilmCard(
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
-                // Poster with overlay
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -188,7 +178,6 @@ fun FilmCard(
                         contentScale = ContentScale.Crop
                     )
 
-                    // Watched indicator
                     if (film.isWatched) {
                         Box(
                             modifier = Modifier
@@ -208,7 +197,6 @@ fun FilmCard(
                         }
                     }
 
-                    // Play button overlay
                     Box(
                         modifier = Modifier
                             .align(Alignment.Center)
@@ -226,15 +214,13 @@ fun FilmCard(
                     }
                 }
 
-                // Film title and info
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(8.dp)
-                        .weight(1f), // Занимает оставшееся пространство
+                        .weight(1f),
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    // Title
                     Text(
                         text = film.title,
                         style = MaterialTheme.typography.bodySmall.copy(
@@ -246,7 +232,6 @@ fun FilmCard(
                         color = NeonColors.TextPrimary
                     )
 
-                    // Year and rating
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -272,7 +257,7 @@ fun FilmCard(
                                 )
                                 Spacer(modifier = Modifier.width(2.dp))
                                 Text(
-                                    text = rating?.toDoubleOrNull()?.let { String.format("%.1f", it) } ?: (rating ?: ""),
+                                    text = rating?.toDoubleOrNull()?.let { String.format("%.1f", it) } ?: rating,
                                     style = MaterialTheme.typography.labelSmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )

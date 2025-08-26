@@ -1,7 +1,6 @@
 package com.example.cinema
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,12 +12,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.example.cinema.domain.model.Collection
 
@@ -36,7 +32,6 @@ fun CollectionsScreen(
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // Header
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -57,7 +52,6 @@ fun CollectionsScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Collections list
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
@@ -74,7 +68,6 @@ fun CollectionsScreen(
         }
     }
 
-    // Create collection dialog
     if (showCreateDialog) {
         CreateCollectionDialog(
             onDismiss = { showCreateDialog = false },
@@ -184,7 +177,6 @@ private fun CreateCollectionDialog(
 @Composable
 fun CollectionDetailsScreen(
     viewModel: CollectionDetailsViewModel,
-    collectionId: Long,
     onBackClick: () -> Unit = {},
     onFilmClick: (Int) -> Unit = {}
 ) {
@@ -196,7 +188,6 @@ fun CollectionDetailsScreen(
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // Header
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -215,7 +206,6 @@ fun CollectionDetailsScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Films list
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {

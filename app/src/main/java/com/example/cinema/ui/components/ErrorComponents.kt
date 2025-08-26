@@ -79,37 +79,3 @@ fun LoadingState(
     }
 }
 
-@Composable
-fun NetworkError(
-    onRetry: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    ErrorMessage(
-        message = "Ошибка сети. Проверьте подключение к интернету.",
-        onRetry = onRetry,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun ServerError(
-    onRetry: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    ErrorMessage(
-        message = "Ошибка сервера. Попробуйте позже.",
-        onRetry = onRetry,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun NoResults(
-    modifier: Modifier = Modifier,
-    message: String = "Ничего не найдено"
-) {
-    EmptyState(
-        message = message,
-        modifier = modifier
-    )
-}

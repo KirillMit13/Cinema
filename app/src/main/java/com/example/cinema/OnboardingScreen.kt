@@ -8,17 +8,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -231,29 +227,4 @@ private fun OnboardingPage(
             textAlign = TextAlign.Center
         )
     }
-}
-
-@Composable
-private fun AnimatedImage(imageRes: Int) {
-    var isAnimating by remember { mutableStateOf(false) }
-    
-    LaunchedEffect(Unit) {
-        isAnimating = true
-    }
-    
-    val scale by animateFloatAsState(
-        targetValue = if (isAnimating) 1.1f else 1.0f,
-        animationSpec = tween(2000, easing = LinearEasing),
-        label = "scale"
-    )
-    
-    AsyncImage(
-        model = imageRes,
-        contentDescription = null,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(300.dp)
-            .scale(scale),
-        contentScale = ContentScale.Crop
-    )
 }

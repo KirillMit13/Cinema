@@ -26,7 +26,6 @@ class CollectionsViewModel(
     private fun loadCollections() {
         viewModelScope.launch {
             repo.getCollections().collect { list ->
-                // Подтягиваем актуальные счётчики фильмов
                 list.forEach { c ->
                     launch {
                         repo.getCollectionCount(c.id).collect { count ->
@@ -51,19 +50,19 @@ class CollectionsViewModel(
         viewModelScope.launch { repo.deleteCustomCollection(id) }
     }
     
-    fun toggleFavorite(film: com.example.cinema.domain.model.Film) {
+    fun toggleFavorite(film: Film) {
         viewModelScope.launch { repo.toggleFavorite(film) }
     }
     
-    fun toggleWatchlist(film: com.example.cinema.domain.model.Film) {
+    fun toggleWatchlist(film: Film) {
         viewModelScope.launch { repo.toggleWatchlist(film) }
     }
     
-    fun toggleWatched(film: com.example.cinema.domain.model.Film) {
+    fun toggleWatched(film: Film) {
         viewModelScope.launch { repo.toggleWatched(film) }
     }
     
-    fun addFilmToCollection(film: com.example.cinema.domain.model.Film, collectionId: Long) {
+    fun addFilmToCollection(film: Film, collectionId: Long) {
         viewModelScope.launch { repo.addFilmToCollection(film, collectionId) }
     }
     
@@ -71,7 +70,7 @@ class CollectionsViewModel(
         viewModelScope.launch { repo.removeFilmFromCollection(filmId, collectionId) }
     }
     
-    fun toggleInCollection(film: com.example.cinema.domain.model.Film, collectionId: Long) {
+    fun toggleInCollection(film: Film, collectionId: Long) {
         viewModelScope.launch { repo.toggleInCollection(film, collectionId) }
     }
 }

@@ -91,8 +91,7 @@ fun FilmPosterWithRating(
             modifier = Modifier.fillMaxSize(),
             contentDescription = contentDescription
         )
-        
-        // Rating badge
+
         rating?.let { ratingValue ->
             if (ratingValue > 0) {
                 Box(

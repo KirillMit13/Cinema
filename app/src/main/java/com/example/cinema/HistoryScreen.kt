@@ -1,6 +1,6 @@
 package com.example.cinema
 
-import androidx.compose.animation.*
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,11 +17,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.example.cinema.ui.components.*
 
 @Composable
 fun HistoryScreen(viewModel: HistoryViewModel) {
@@ -33,7 +30,6 @@ fun HistoryScreen(viewModel: HistoryViewModel) {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // Header
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -59,7 +55,6 @@ fun HistoryScreen(viewModel: HistoryViewModel) {
             }
         }
 
-        // History list
         if (items.isEmpty()) {
             EmptyHistoryState()
         } else {
@@ -68,15 +63,14 @@ fun HistoryScreen(viewModel: HistoryViewModel) {
             ) {
                 items(
                     items = items,
-                    key = { historyItem: com.example.cinema.HistoryWithFilm -> historyItem.id }
-                ) { historyItem: com.example.cinema.HistoryWithFilm ->
+                    key = { historyItem: HistoryWithFilm -> historyItem.id }
+                ) { historyItem: HistoryWithFilm ->
                     HistoryItemCard(historyItem = historyItem)
                 }
             }
         }
     }
 
-    // Clear history dialog
     if (showClearDialog.value) {
         AlertDialog(
             onDismissRequest = { showClearDialog.value = false },
@@ -151,7 +145,7 @@ private fun EmptyHistoryState() {
 
 @Composable
 private fun HistoryItemCard(
-    historyItem: com.example.cinema.HistoryWithFilm
+    historyItem: HistoryWithFilm
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -164,7 +158,6 @@ private fun HistoryItemCard(
                 .padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Film poster
             val posterUrl = historyItem.filmPosterUrl
             if (posterUrl != null) {
                 AsyncImage(
@@ -193,7 +186,6 @@ private fun HistoryItemCard(
 
             Spacer(modifier = Modifier.width(12.dp))
 
-            // Film info
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -214,7 +206,6 @@ private fun HistoryItemCard(
                 )
             }
 
-            // History icon
             Icon(
                 imageVector = Icons.Default.History,
                 contentDescription = "В истории",

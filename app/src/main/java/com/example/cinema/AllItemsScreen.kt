@@ -26,27 +26,6 @@ import coil.compose.AsyncImage
 import com.example.cinema.ui.components.*
 
 @Composable
-fun AllItemsScreen(
-    films: List<Film>,
-    onFilmClick: (Int) -> Unit = {}
-) {
-    LazyColumn(
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        items(
-            items = films,
-            key = { film: Film -> film.id }
-        ) { film: Film ->
-            FilmListItem(
-                film = film,
-                onClick = { onFilmClick(film.id) }
-            )
-        }
-    }
-}
-
-@Composable
 fun AllItemsPagingScreen(
     flow: Flow<PagingData<Film>>,
     onFilmClick: (Int) -> Unit = {}

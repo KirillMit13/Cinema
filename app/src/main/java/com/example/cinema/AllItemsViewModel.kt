@@ -18,7 +18,6 @@ class AllItemsViewModel(
 
     init {
         viewModelScope.launch {
-            // Placeholder: reload all items for the section (future: paging)
             val sections = repository.loadHomeSections()
             _items.value = sections.firstOrNull { it.sectionTitle == sectionTitle }?.films ?: emptyList()
         }

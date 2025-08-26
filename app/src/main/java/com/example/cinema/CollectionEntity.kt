@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class CollectionEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val name: String,
-    val type: String // FAVORITES, WATCHLIST, CUSTOM
+    val type: String
 )

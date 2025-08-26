@@ -1,7 +1,6 @@
 package com.example.cinema
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,16 +14,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.example.cinema.domain.model.Collection
 
 @Composable
 fun ProfileScreen(
@@ -41,12 +35,10 @@ fun ProfileScreen(
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // Profile header
         item {
             ProfileHeader()
         }
-        
-        // Stats section
+
         item {
             ProfileStats(
                 watchedCount = watched.size,
@@ -54,8 +46,7 @@ fun ProfileScreen(
                 historyCount = history.size
             )
         }
-        
-        // Watched films section
+
         item {
             SectionHeader(
                 title = "Просмотренные фильмы",
@@ -65,8 +56,8 @@ fun ProfileScreen(
         
         itemsIndexed(
             items = watched.take(5),
-            key = { index, film: com.example.cinema.FilmEntity -> "watched_${film.id}_${index}" }
-        ) { _, film: com.example.cinema.FilmEntity ->
+            key = { index, film: FilmEntity -> "watched_${film.id}_${index}" }
+        ) { _, film: FilmEntity ->
             WatchedFilmItem(film = film)
         }
         
@@ -74,12 +65,11 @@ fun ProfileScreen(
             item {
                 ViewAllButton(
                     text = "Показать все просмотренные (${watched.size})",
-                    onClick = { /* Navigate to watched films */ }
+                    onClick = {  }
                 )
             }
         }
-        
-        // Collections section
+
         item {
             SectionHeader(
                 title = "Коллекции",
@@ -105,8 +95,7 @@ fun ProfileScreen(
                 )
             }
         }
-        
-        // History section
+
         item {
             SectionHeader(
                 title = "История просмотров",
@@ -117,8 +106,8 @@ fun ProfileScreen(
         if (history.isNotEmpty()) {
             items(
                 items = history.take(5),
-                key = { historyItem: com.example.cinema.HistoryEntity -> "history_${historyItem.id}" }
-            ) { historyItem: com.example.cinema.HistoryEntity ->
+                key = { historyItem: HistoryEntity -> "history_${historyItem.id}" }
+            ) { historyItem: HistoryEntity ->
                 HistoryItem(historyItem = historyItem)
             }
             
@@ -145,7 +134,6 @@ private fun ProfileHeader() {
             modifier = Modifier.padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Avatar
             Box(
                 modifier = Modifier
                     .size(80.dp)
@@ -162,8 +150,7 @@ private fun ProfileHeader() {
             }
             
             Spacer(modifier = Modifier.height(16.dp))
-            
-            // Name
+
             Text(
                 text = "Киноман",
                 style = MaterialTheme.typography.headlineSmall.copy(
@@ -172,8 +159,7 @@ private fun ProfileHeader() {
             )
             
             Spacer(modifier = Modifier.height(4.dp))
-            
-            // Subtitle
+
             Text(
                 text = "Любитель качественного кино",
                 style = MaterialTheme.typography.bodyMedium,
@@ -267,7 +253,7 @@ private fun SectionHeader(
 
 @Composable
 private fun WatchedFilmItem(
-    film: com.example.cinema.FilmEntity
+    film: FilmEntity
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -373,7 +359,7 @@ private fun CollectionItem(
 
 @Composable
 private fun HistoryItem(
-    historyItem: com.example.cinema.HistoryEntity
+    historyItem: HistoryEntity
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),

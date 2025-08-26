@@ -7,16 +7,9 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
-import androidx.core.view.WindowCompat
 import com.example.cinema.ui.components.NeonColors
 
-class SkillCinemaApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        // WindowCompat.setDecorFitsSystemWindows(window, false)
-    }
-}
+class SkillCinemaApp : Application()
 
 private val DarkColorScheme = darkColorScheme(
     primary = NeonColors.Primary,

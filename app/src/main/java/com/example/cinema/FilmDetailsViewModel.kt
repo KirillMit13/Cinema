@@ -8,12 +8,11 @@ import com.example.cinema.data.mapper.toDomainPerson
 import com.example.cinema.data.remote.model.KinopoiskService
 import com.example.cinema.domain.model.FilmDetails
 import com.example.cinema.domain.model.Person
-import com.example.cinema.HistoryEntity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
+
 
 class FilmDetailsViewModel(
     private val api: KinopoiskService,
@@ -57,7 +56,6 @@ class FilmDetailsViewModel(
                 _state.value = details
                 _staff.value = staff
                 _similars.value = similars
-                // observe collection membership
                 viewModelScope.launch {
                     collectionsRepository.isInAnyCollectionFlow(filmId).collect { inAny ->
                         _isInAnyCollection.value = inAny
@@ -90,11 +88,10 @@ class FilmDetailsViewModel(
                     posterUrl = details.posterUrl,
                     rating = details.rating,
                     year = details.year,
-                    genres = details.genres ?: emptyList(),
+                    genres = details.genres,
                     isWatched = false
                 )
             )
-            // Обновляем локальное состояние для мгновенного UI-рефреша
             _state.value = details.copy(isFavorite = !details.isFavorite)
         }
     }
@@ -109,7 +106,7 @@ class FilmDetailsViewModel(
                     posterUrl = details.posterUrl,
                     rating = details.rating,
                     year = details.year,
-                    genres = details.genres ?: emptyList(),
+                    genres = details.genres,
                     isWatched = false
                 )
             )
@@ -126,7 +123,7 @@ class FilmDetailsViewModel(
                     posterUrl = details.posterUrl,
                     rating = details.rating,
                     year = details.year,
-                    genres = details.genres ?: emptyList(),
+                    genres = details.genres,
                     isWatched = false
                 )
             )

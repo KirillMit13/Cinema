@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.cinema.domain.model.Film
-import com.example.cinema.domain.model.Collection
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -31,8 +30,7 @@ class CollectionsPickerViewModel(
                     CollectionItemUi(id = c.id, name = c.name, count = 0, isChecked = false) 
                 }
                 _items.value = current
-                
-                // Update counts and checked flags
+
                 collections.forEach { collection ->
                     launch {
                         repo.getCollectionCount(collection.id).collectLatest { cnt ->

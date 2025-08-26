@@ -14,12 +14,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
 import com.example.cinema.ui.components.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.shape.CircleShape
@@ -45,7 +42,6 @@ fun FilmDetailsScreen(
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
-        // Top bar
         TopAppBar(
             title = { Text("Детали фильма") },
             navigationIcon = {
@@ -90,7 +86,7 @@ fun FilmDetailsScreen(
                                 posterUrl = state!!.posterUrl,
                                 rating = state!!.rating,
                                 year = state!!.year,
-                                genres = state!!.genres ?: emptyList(),
+                                genres = state!!.genres,
                                 isWatched = false
                             )) { showPicker = false }
                         }
@@ -168,7 +164,6 @@ private fun FilmHeader(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Action buttons
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
